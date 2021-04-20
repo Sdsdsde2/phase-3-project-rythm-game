@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rythm Game</title>
+</head>
+<body>
+    <audio controls>
+        <source src="./assets/images/Legend.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <div class="audio-player">
+        <canvas height="100" width="480"></canvas>
+        <div class="controls">
+            <button class="play-pause"><span class="material-icons">
+                play_arrow
+                </span>
+            </button>
+            <input type="range" class="seekbar"></input>
+            <span class="material-icons white">
+                volume_down
+            </span>
+            <input type="range" class="volume"></input>
+        </div>
+    </div>
+
+    <div class = "main-page">
+        <h1>Title Page</h1>
+        <button id="game-start-button">Start Game</button>
+    </div>
+    <div class = "main-game">
+        <!-- stuff -->
+    </div>
+    <div class="game-end">
+        <!-- stuff -->
+    </div>
+    <script src="javascript/analyzer.js"></script>
+    <!-- <script src="./index2.js"></script> -->
+</body>
+</html>
