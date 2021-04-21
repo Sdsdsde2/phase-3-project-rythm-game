@@ -33,7 +33,7 @@ function createCircle(){
 
 function myFunction() {
     document.getElementById("gamecircle").style.animation = "mynewmove 4s 20";
-  }
+}
 
 
 // function createCircle(){
