@@ -8,36 +8,22 @@
     <title>Rythm Game</title>
 </head>
 <body>
-    <audio controls>
-        <source src="./assets/images/Legend.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-    <div class="audio-player">
-        <canvas height="100" width="480"></canvas>
-        <div class="controls">
-            <button class="play-pause"><span class="material-icons">
-                play_arrow
-                </span>
-            </button>
-            <input type="range" class="seekbar"></input>
-            <span class="material-icons white">
-                volume_down
-            </span>
-            <input type="range" class="volume"></input>
-        </div>
-    </div>
-
     <div class = "main-page">
-        <h1>Title Page</h1>
-        <button id="game-start-button">Start Game</button>
+        <center><h1>RYTHM GAME</h1></center>
+        <!-- Contains things like creating the users player -->
     </div>
     <div class = "main-game">
         <!-- stuff -->
+        <div class="arrow-keys"> 
+            <p>Right arrow: <i id="arrow_right"></i></p>
+            <p>Left arrow: <i id="arrow_left"></i></p>
+            <p>Up arrow: <i id="arrow_up"></i></p>
+            <p>Down arrow: <i id="arrow_down"></i></p>
+        </div>
     </div>
     <div class="game-end">
-        <!-- stuff -->
+        <!-- Display the top 10 scores and other things for after the game ends -->
     </div>
-    <script src="javascript/analyzer.js"></script>
-    <!-- <script src="./index2.js"></script> -->
+    <script src="javascript/index.js"></script>
 </body>
 </html>

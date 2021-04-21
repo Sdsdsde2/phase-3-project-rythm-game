@@ -1,3 +1,4 @@
+console.log('Analyzer.js loaded')
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 const audioElem = document.querySelector('audio');
 const canvasElem = document.querySelector('canvas');
