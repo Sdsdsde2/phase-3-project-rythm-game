@@ -13,42 +13,14 @@
     background-color: cornflowerblue;
 }
 
-.lane1{
-    border: 8px solid rgb(10, 236, 10);
-    height: 60vh;
-    width: 5vw;
-    position: absolute;
-    transform: translate(100%, 0%);
-    background-color:rgb(10, 236, 10);
-    padding: 1px;
-}
-
-.lane2{
-    border: 8px solid rgb(241, 87, 87);
-    height: 60vh;
-    width: 5vw;
-    position: absolute;
-    transform: translate(200%, 0%);
-    background-color:rgb(241, 87, 87);
-    padding: 1px;
-}
-
-.lane3{
-    border: 8px solid rgb(251, 255, 4);
-    height: 60vh;
-    width: 5vw;
-    position: absolute;
-    transform: translate(300%, 0%);
-    background-color:rgb(251, 255, 4);
-    padding: 1px;
-}
-
-.lane4{
-    border: 8px solid rgb(255, 8, 255);
-    height: 60vh;
-    width: 5vw;
-    position: absolute;
-    transform: translate(0%, 0%);
-    background-color:rgb(255, 8, 255);
-    padding: 1px;
+#gamecircle {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: relative;
+    animation: mymove 3s;
+  }
+  @keyframes mymove {
+    from {width: 0px; height: 0px;}
+    to {width: 100px; height: 100px;}
 }

@@ -31,7 +31,7 @@ Can delete account
 Models:
 1. Player Model C: R: U:
 2. High Score (Top 10) C: R: U:
-3. Song choice Model
+3. Song choice Model 
 4. Difficulty model 
 
 Controller Actions:
@@ -71,6 +71,8 @@ Stretch Goals:
 Custom made music for game
 
 */
+
+//other idea instead of lanes make it so that the keys that have to hit are actualyl circles that get get a bigger circle closing in on it to press at the right time 
 
 
 
