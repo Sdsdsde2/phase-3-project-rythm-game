@@ -6,10 +6,10 @@ let score = 0;
 
 //remove points but keeps it from going under 0
 function removePoints(){
-if(score > 0){
-    score = score - 1
-}
-console.log(score)
+    if(score > 0){
+        score = score - 1
+    }
+    console.log(score)
 }
 
 let keysToBeClicked = ["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"]
