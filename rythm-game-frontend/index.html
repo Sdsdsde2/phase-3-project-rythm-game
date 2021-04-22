@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
@@ -7,16 +8,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rythm Game</title>
 </head>
+
 <body>
-    <div class = "main-page">
-        <center><h1>RYTHM GAME</h1></center>
+    <!-- Contains the main things like User create, begin game, title page -->
+    <div class="main-page" id="mainp">
+        <center id="starting menu">
+            <h1 id="title">"Game title name goes here"</h1>
+            <h1 id="create-username">Create Username (NON-FUNCTIONAL)</h1>
+            <h1 id="start-game">Start Game as a Guest</h1>
+            <h1 id="high-scores">View High Scores (NON-FUNCTIONAL)</h1>
+            <h1 id="controls">Controls</h1>
+            <h1 id="credits">Created by Shane and Udenna at Flatiron School</h1>
+
+        </center>
+
+        <div class="username-creation" hidden>
+
+        </div>
+
+        <div class="highscores" hidden>
+
+        </div>
         <!-- Contains things like creating the users player -->
     </div>
-    <div class = "main-game">
+
+    <!-- Contains the game and all of its properties -->
+    <div class="container" hidden>
+        <center>
+            <h1 id="score">Score:</h1>
+        </center>
+        <!-- Remains hidden till the user presses begin -->
+        <div class="main-game">
+            <div class="balls" hidden>
+                <div id="ball1"></div>
+                <div id="ball2"></div>
+                <div id="ball3"></div>
+                <div id="ball4"></div>
+                <div id="ball5"></div>
+                <div id="ball6"></div>
+                <div id="ball7"></div>
+            </div>
+        </div>
     </div>
+
+    <!-- Contains the game end screen with the top 10 scores, current score, ect... -->
     <div class="game-end">
         <!-- Display the top 10 scores and other things for after the game ends -->
     </div>
+
+
     <script src="javascript/index.js"></script>
+    <script src="javascript/main-game.js"></script>
 </body>
+
 </html>
