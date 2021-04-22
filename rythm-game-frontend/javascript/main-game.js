@@ -1,54 +1,67 @@
-let inGame = false
-let score = 0;
-let easyKeysToBeClicked = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
-let normalKeysToBeClicked = [...easyKeysToBeClicked, "KeyW", "KeyA", "KeyS", "KeyD"]
-let chosenKey = [] //Used to check the expected key to be hit
 
+
+//Starts the game
 function startRound() {
     let balls = document.querySelector('.balls')
-    balls.hidden = false
-    drawBall();
+    // balls.hidden = false
     togglePlayPause();
 }
 
-
-
+//Keydown function 
+//Used so that user wont keep stacking up on points
 document.addEventListener('keydown', logKey)
 function logKey(e) {
-    if (e.code == chosenKey) {
+    if (e.code == chosenKey && isHit == false) {
+        isHit = true
         console.log('HIT!')
-        score += 1
-    } else {
+        hitAnimation()
+        addPoints()
+    } else if (e.code == chosenKey && isHit == true) {
+    } else if (e.code !== chosenKey && isHit == false) {
+        isHit = true
         console.log(e.code + "missed")
-        score -= 1
+        removePoints()
+    } else {
     }
     console.log(score)
 }
 
-// console.log(document.getElementsByClassName(`balls`))
-// let ball = document.getElementsByClassName(`balls`)[0]
-// let children = ball.childNodes
-// console.log(children)
-
 //Chooses which ball to display for the game at random
 function drawBall() {
     let ball = document.getElementsByClassName(`balls`)[0]
-    
-    // let children = ball.childNodes[0]
-    // console.log(children)
+    console.log(ball)
 
-    // let ball = document.getElementById(`ball${Math.floor(Math.random() * 4) + 1}`)
-    // let ball = document.querySelector(`#ball${Math.floor(Math.random() * 4) + 1}`)
     ball.hidden = false
+    isHit = false
     chosenKey = `${normalKeysToBeClicked[Math.floor(Math.random() * 8) + 0]}`
-    console.log(Math.floor(Math.random() * 50) + 1 + " " +Math.floor(Math.random() * 73) + 1 )
     ball.innerHTML = ` <center><h1>${chosenKey}</h1></center>`
-    console.log('ball loaded')
     ball.style.top = `${Math.floor(Math.random() * 50) + 1}%`
     ball.style.left = `${Math.floor(Math.random() * 73) + 1}%`
 }
-// drawBall();
 
+function addPoints() {
+    score = (score * scoreMultiplier) + 1
+    let displayScore = document.getElementById('score')
+    displayScore.innerText = `Score: ${score}`
+
+}
+
+function removePoints() {
+    score = score - 1
+    let displayScore = document.getElementById('score')
+    displayScore.innerText = `Score: ${score}`
+    console.log(score)
+}
+
+function hitAnimation() {
+    let ball = document.getElementsByClassName(`balls`)[0]
+    ball.style.backroundColor='brown'
+}
+
+hitAnimation()
+
+
+// drawBall();
 
 //5 second wait (testing purposes)
 // setTimeout(() => {

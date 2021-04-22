@@ -12,7 +12,7 @@
 <body>
     <!-- Contains the audio to play and the controls (Not seen by user) -->
     <audio>
-        <source src="./Songs/Legend.mp3" type="audio/mpeg" id="audio">
+        <source src="./Songs/Troops.mp3" type="audio/mpeg" id="audio">
       <h1>Your browser does not support the audio element.</h1>
     </audio>
 
@@ -41,7 +41,7 @@
     <!-- Contains the game and all of its properties -->
     <div class="container" hidden>
         <center>
-            <h1 id="score">Score:</h1>
+            <h1 id="score">Score: 0</h1>
         </center>
         <!-- Remains hidden till the user presses begin -->
         <div class="main-game">
@@ -62,10 +62,9 @@
         <!-- Display the top 10 scores and other things for after the game ends -->
     </div>
 
-
     <script src="javascript/index.js"></script>
+    <script src="javascript/game-data.js"></script>
     <script src="javascript/main-game.js"></script>
     <script src="javascript/analyzer.js"></script>
 </body>
-
 </html>
