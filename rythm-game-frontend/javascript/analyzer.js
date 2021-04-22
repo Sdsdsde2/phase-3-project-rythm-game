@@ -1,24 +1,12 @@
-<<<<<<< HEAD
-console.log('Analyzer.js loaded');
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-const audioElem = document.querySelector('audio');
-
-togglePlayPause();
-=======
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 const audioElement = document.querySelector('audio');
->>>>>>> main
 
 let audioState = {
     isReplay : false,
     isPaused : true,
 };
 
-<<<<<<< HEAD
-const source = audioCtx.createMediaElementSource(audioElem);
-=======
 const source = audioCtx.createMediaElementSource(audioElement);
->>>>>>> main
 const analyser = audioCtx.createAnalyser();
 analyser.fftSize = 256;
 
