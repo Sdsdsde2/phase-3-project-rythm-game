@@ -64,7 +64,8 @@ body {
 .balls { 
     height: 200px;
     width: 200px;
-    background-color: rgb(3, 196, 3);
+    background-color: rgb(196, 3, 3);
+    /* background-color: rgb(3, 196, 3); */
     border-color: hotpink;
     border-radius: 50%;
     position: absolute;

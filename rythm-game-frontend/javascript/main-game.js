@@ -6,12 +6,8 @@ let chosenKey = [] //Used to check the expected key to be hit
 
 function startRound() {
     let balls = document.querySelector('.balls')
-    balls.hidden = false
-    drawBall();
     togglePlayPause();
 }
-
-
 
 document.addEventListener('keydown', logKey)
 function logKey(e) {
@@ -41,7 +37,6 @@ function drawBall() {
     // let ball = document.querySelector(`#ball${Math.floor(Math.random() * 4) + 1}`)
     ball.hidden = false
     chosenKey = `${normalKeysToBeClicked[Math.floor(Math.random() * 8) + 0]}`
-    console.log(Math.floor(Math.random() * 50) + 1 + " " +Math.floor(Math.random() * 73) + 1 )
     ball.innerHTML = ` <center><h1>${chosenKey}</h1></center>`
     console.log('ball loaded')
     ball.style.top = `${Math.floor(Math.random() * 50) + 1}%`

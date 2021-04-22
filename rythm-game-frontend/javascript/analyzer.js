@@ -24,15 +24,16 @@ function delay() {
     analyser.getByteFrequencyData(dataArray);
 
     if (dataArray[0] != 255 && arrowCnt >= 0) {
-        if (dataArray[0] >= 220) {
+        if (dataArray[0] >= 228) {
             if (flag == false) {
                 console.log("Arrow")
                 flag = true;
                 arrowCnt++;
+                drawBall();
                 console.log(arrowCnt)
                 setTimeout(() => {
                     flag = false;
-                }, 1400);
+                }, 1415);
             }
         }
     }
@@ -46,7 +47,6 @@ function delay() {
 
 function hit(){
     analyser.getByteFrequencyData(dataArray);
-
     if (dataArray[0] == 255) {
         if (flag2 == false) {
             flag2 = true;
