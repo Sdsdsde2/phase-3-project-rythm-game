@@ -1,5 +1,42 @@
 html, body {margin: 0; height: 100%; overflow: hidden}
 
+body {
+    background: aquamarine;
+}
+
+#title {
+    font-family: Verdana, sans-serif;
+    font-size: 100px;
+    filter: blur(.6px);
+}
+
+#create-username {
+    font-family: Verdana, sans-serif;
+    font-size: 50px;
+    filter: blur(.6px);
+}
+
+#start-game {
+    font-family: Verdana, sans-serif;
+    font-size: 50px;
+    filter: blur(.6px);
+}
+
+#high-scores {
+    font-family: Verdana, sans-serif;
+    font-size: 50px;  
+    filter: blur(.6px); 
+}
+
+#controls {
+    font-family: Verdana, sans-serif;
+}
+
+#credits {
+    font-family: Verdana, sans-serif;
+    margin-top: 300px;
+}
+
 .main-game {
     height: 70vh;
     width: 70vw;
@@ -15,9 +52,60 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     background-color: cornflowerblue;
 }
 
-title {
+#score {
     font-family: Verdana, sans-serif;
+    font-size: 50px;
 }
+
+
+/* For the ones that arent shown on the screen yet. */
+
+.balls { 
+    height: 200px;
+    width: 200px;
+    background-color: rgb(3, 196, 3);
+    border-color: hotpink;
+    border-radius: 50%;
+    position: relative;
+
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	transform: scale(1);
+	animation: pulse .7s infinite;
+}
+@keyframes pulse {
+    0% {
+		transform: scale(0.5);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.5);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+
+#title {
+    animation: myEyes .7s infinite;
+}
+@keyframes myEyes {
+    0% {
+        filter: blur(0px);
+    }
+
+    50% {
+        filter: blur(2px);
+    }
+
+    100% {
+        filter: blur(0px);
+    }
+}
+
 
 /* #gamecircle {
     width: 100px;
