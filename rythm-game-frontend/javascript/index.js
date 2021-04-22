@@ -10,6 +10,9 @@ function startGameBtn(){
         hide('#mainp')
         console.log('clicked')
         show('.container')
+        setTimeout(() => {
+            startRound();
+        }, 5000);
     })
 }
 
