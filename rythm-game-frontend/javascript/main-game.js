@@ -1,5 +1,3 @@
-
-
 //Starts the game
 function startRound() {
     let balls = document.querySelector('.balls')
@@ -60,6 +58,15 @@ function hitAnimation() {
 
 hitAnimation()
 
+function endGame(){
+    hide('#mainp')
+    hide('.container')
+}
+
+function startGame(){
+    hide('#mainp')
+    show('.container')
+}
 
 // drawBall();
 

@@ -33,7 +33,7 @@ function delay() {
                 console.log(arrowCnt)
                 setTimeout(() => {
                     flag = false;
-                }, 1400);
+                }, 500); // <= What is this for
             }
         }
     }
@@ -78,3 +78,8 @@ function togglePlayPause() {
         audioState.isPaused = !audioState.isPaused;
     });
 }
+
+//Action when the round is over
+audioElement.onended = function() {
+    endGame();
+};
