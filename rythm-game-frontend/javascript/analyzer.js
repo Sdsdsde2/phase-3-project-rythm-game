@@ -1,15 +1,24 @@
+<<<<<<< HEAD
 console.log('Analyzer.js loaded');
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 const audioElem = document.querySelector('audio');
 
 togglePlayPause();
+=======
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+const audioElement = document.querySelector('audio');
+>>>>>>> main
 
 let audioState = {
     isReplay : false,
     isPaused : true,
 };
 
+<<<<<<< HEAD
 const source = audioCtx.createMediaElementSource(audioElem);
+=======
+const source = audioCtx.createMediaElementSource(audioElement);
+>>>>>>> main
 const analyser = audioCtx.createAnalyser();
 analyser.fftSize = 256;
 
@@ -21,7 +30,7 @@ const dataArray = new Uint8Array(bufferLength);
 
 var flag = false;
 var flag2 = false;
-var arrowCnt = 1;
+var arrowCnt = 0;
 
 function delay() {
     analyser.getByteFrequencyData(dataArray);
@@ -63,20 +72,19 @@ function hit(){
         }
     }
 }
-
 delay();
 
 function togglePlayPause() {
     audioCtx.resume().then(() => {
         if(audioState.isPaused) {
-            audioElem.play();
+            audioElement.play();
         } else {
             if(audioState.isReplay) {
-                audioElem.play();
+                audioElement.play();
                 audioState.isReplay = false;
                 return;
             }
-            audioElem.pause();
+            audioElement.pause();
         }
         audioState.isPaused = !audioState.isPaused;
     });
