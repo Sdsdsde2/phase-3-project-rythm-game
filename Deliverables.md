@@ -29,8 +29,8 @@ Controller Actions:
 JSON Responses:
 {
 	"playerData": {
-	"id": 	
-	"username": 
+	"id":
+	"username":
 	"topScore":
 	"level":
 	},

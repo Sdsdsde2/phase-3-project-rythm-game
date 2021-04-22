@@ -18,9 +18,8 @@ function createrUserBtn(){
 function startGameBtn(){
     const button = document.querySelector('#start-game')
     button.addEventListener("click",()=>{
-        hide('#mainp')
+        startGame();
         console.log('clicked')
-        show('.container')
         setTimeout(() => {
             startRound();
         }, 5000);
@@ -50,3 +49,5 @@ function controlsLol(){
         lol.innerText = "Just click the key that shows up on the screen it isn't that hard"
     })
 }
+
+
