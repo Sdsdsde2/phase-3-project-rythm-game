@@ -1,41 +1,12 @@
-console.log('Analyzer.js loaded')
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-const audioElem = document.querySelector('audio');
-const canvasElem = document.querySelector('canvas');
-const canvasCtx = canvasElem.getContext('2d');
-const playPauseButton = document.querySelector('.play-pause');
-const seekbar = document.querySelector('.seekbar');
-const volumeBar = document.querySelector('.volume');
-
-const pauseIcon = `<span class="material-icons">
-pause
-</span>`;
-const playIcon = `<span class="material-icons">
-play_arrow
-</span>`;
-const replayIcon = `<span class="material-icons">
-replay
-</span>`;
-
-const WIDTH = canvasElem.clientWidth;
-const HEIGHT = canvasElem.clientHeight;
-seekbar.value = 0;
-volumeBar.value = 100;
+const audioElement = document.querySelector('audio');
 
 let audioState = {
     isReplay : false,
     isPaused : true,
 };
 
-playPauseButton.addEventListener('click', togglePlayPause);
-
-audioElem.addEventListener('timeupdate', setProgress);
-audioElem.addEventListener('ended', onEnd);
-audioElem.addEventListener('canplay',setDuration);
-seekbar.addEventListener('input', onSeek);
-volumeBar.addEventListener('input', onVolumeSeek);
-
-const source = audioCtx.createMediaElementSource(audioElem);
+const source = audioCtx.createMediaElementSource(audioElement);
 const analyser = audioCtx.createAnalyser();
 analyser.fftSize = 256;
 
@@ -45,64 +16,64 @@ analyser.connect(audioCtx.destination);
 const bufferLength = analyser.frequencyBinCount;
 const dataArray = new Uint8Array(bufferLength);
 
-function draw() {
+var flag = false;
+var flag2 = false;
+var arrowCnt = 0;
+
+function delay() {
     analyser.getByteFrequencyData(dataArray);
-    canvasCtx.fillStyle = 'rgb(2, 2, 2)';
-    canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
 
-    const barWidth = (WIDTH / bufferLength) * 2.5;
-    let barHeight;
-    let x = 0;
-
-    for(let i = 0; i < bufferLength; i++) {
-        barHeight = dataArray[i] / 2.8;
-        canvasCtx.fillStyle = `rgb(50,50, 200)`;
-        canvasCtx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
-
-        x += barWidth + 1;
+    if (dataArray[0] != 255 && arrowCnt >= 0) {
+        if (dataArray[0] >= 220) {
+            if (flag == false) {
+                console.log("Arrow")
+                flag = true;
+                arrowCnt++;
+                console.log(arrowCnt)
+                setTimeout(() => {
+                    flag = false;
+                }, 1400);
+            }
+        }
     }
-
-    requestAnimationFrame(draw);
+    else {
+        if (arrowCnt > 0) {
+            hit();
+        }
+    }
+    requestAnimationFrame(delay);
 }
-draw();
+
+function hit(){
+    analyser.getByteFrequencyData(dataArray);
+
+    if (dataArray[0] == 255) {
+        if (flag2 == false) {
+            flag2 = true;
+            console.log("Arrow Should Hit")
+            arrowCnt--;
+            console.log(arrowCnt)
+            setTimeout(() => {
+                flag2 = false;
+            }, 1250);
+            delay()
+        }
+    }
+}
+delay();
 
 function togglePlayPause() {
     audioCtx.resume().then(() => {
         if(audioState.isPaused) {
-            playPauseButton.innerHTML = pauseIcon;
-            audioElem.play();
+            audioElement.play();
         } else {
-            if(audioState.isReplay) { // Replay
-                playPauseButton.innerHTML = pauseIcon;
-                audioElem.play();
+            if(audioState.isReplay) {
+                audioElement.play();
                 audioState.isReplay = false;
                 return;
             }
-            playPauseButton.innerHTML = playIcon;
-            audioElem.pause();
+            audioElement.pause();
         }
-    
         audioState.isPaused = !audioState.isPaused;
     });
-}
-
-function setProgress() {
-    seekbar.value =  audioElem.currentTime;
-}
-function setDuration() {
-    seekbar.max = audioElem.duration;
-}
-
-function onEnd() {
-    playPauseButton.innerHTML = replayIcon;
-    audioElem.currentTime = 0;
-    seekbar.value = 0;
-    audioState.isReplay = true;
-}
-function onSeek(evt) {
-    audioElem.currentTime = evt.target.value;
-}
-
-function onVolumeSeek(evt) {
-    audioElem.volume = evt.target.value / 100;
 }

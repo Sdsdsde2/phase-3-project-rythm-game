@@ -66,7 +66,7 @@ body {
     background-color: rgb(3, 196, 3);
     border-color: hotpink;
     border-radius: 50%;
-    position: relative;
+    position: absolute;
 
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
 	transform: scale(1);
