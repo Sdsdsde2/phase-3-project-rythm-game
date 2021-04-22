@@ -22,7 +22,7 @@ function startGameBtn(){
         console.log('clicked')
         setTimeout(() => {
             startRound();
-        }, 5000);
+        }, 35);
     })
 }
 
