@@ -29,6 +29,7 @@ function delay() {
                 console.log("Arrow")
                 flag = true;
                 arrowCnt++;
+                drawBall();
                 console.log(arrowCnt)
                 setTimeout(() => {
                     flag = false;
