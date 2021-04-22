@@ -3,7 +3,6 @@
 //Starts the game
 function startRound() {
     let balls = document.querySelector('.balls')
-    // balls.hidden = false
     togglePlayPause();
 }
 

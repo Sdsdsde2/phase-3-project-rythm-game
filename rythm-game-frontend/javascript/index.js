@@ -1,8 +1,19 @@
 document.addEventListener("DOMContentLoaded", ()=>{
     console.log("index.js fully loaded")
+    createrUserBtn()
     startGameBtn()
+    highscoreBtn()
     controlsLol()
 })
+
+function createrUserBtn(){
+    const button = document.querySelector('#create-username')
+    button.addEventListener("click",()=>{
+        hide('#mainp')
+        console.log('clicked')
+        show('.username-creation')
+    })
+}
 
 function startGameBtn(){
     const button = document.querySelector('#start-game')
@@ -13,6 +24,15 @@ function startGameBtn(){
         setTimeout(() => {
             startRound();
         }, 5000);
+    })
+}
+
+function highscoreBtn(){
+    const button = document.querySelector('#high-scores')
+    button.addEventListener("click",()=>{
+        hide('#mainp')
+        console.log('clicked')
+        show('.highscores')
     })
 }
 
