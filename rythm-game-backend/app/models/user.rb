@@ -1,4 +1,4 @@
 class User < ApplicationRecord
-    has_many :scores
-    has_many :songs, through: :scores
+    has_many :songs
+    has_many :scores, through: :songs
 end

@@ -1,4 +1,4 @@
 class Score < ApplicationRecord
-    belongs_to :song
-    belongs_to :user
+    has_many :songs
+    has_many :users, through: :songs
 end
