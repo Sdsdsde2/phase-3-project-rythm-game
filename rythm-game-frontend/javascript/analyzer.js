@@ -1,5 +1,6 @@
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 const audioElement = document.querySelector('audio');
+const audioDur = audioElement.duration;
 
 let audioState = {
     isReplay : false,

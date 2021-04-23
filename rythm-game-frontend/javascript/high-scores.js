@@ -2,23 +2,18 @@ let hs = document.querySelector('.scores')
 let br = document.createElement('br')
 
 function getScores() {
-fetch('http://localhost:3000/api/v1/scores')
+fetch('http://localhost:3000/api/v1/users')
 .then(resp => resp.json())
 .then(scores => { 
-    scores.sort((a, b) => (a.score < b.score) ? 1 : (b.score < a.score) ? -1 : 0)
+    scores.sort((a, b) => (a.topScore < b.topScore) ? 1 : (b.topScore < a.topScore) ? -1 : 0)
     scores.forEach(showScores)
 })
 }
 
 function showScores(s) {
-    let newScore = document.createElement('h1')
+    let hScore = document.createElement('h1')
+    hScore.innerText += `${s.username} - ${s.topScore} points.`
 
-    fetch(`http://localhost:3000/api/v1/users/${s.user_id}`)
-    .then(resp => resp.json())
-    .then(user => newScore.innerText += `${user.username} - ${s.score} points.`)
-
-    hs.append(newScore)
+    hs.append(hScore)
     hs.append(br)
 }
-
-getScores()

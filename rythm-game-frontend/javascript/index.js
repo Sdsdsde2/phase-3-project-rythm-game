@@ -10,7 +10,6 @@ function createrUserBtn(){
     const button = document.querySelector('#create-username')
     button.addEventListener("click",()=>{
         hide('#mainp')
-        console.log('clicked')
         show('.username-creation')
     })
 }
@@ -18,19 +17,21 @@ function createrUserBtn(){
 function startGameBtn(){
     const button = document.querySelector('#start-game')
     button.addEventListener("click",()=>{
+        alert("You are playing as a guest. Your score will not be saved!");
+        username = '';
         startGame();
-        console.log('clicked')
         setTimeout(() => {
             startRound();
-        }, 35);
+            timeLeft();
+        }, 150);
     })
 }
 
 function highscoreBtn(){
     const button = document.querySelector('#high-scores')
     button.addEventListener("click",()=>{
+        getScores()
         hide('#mainp')
-        console.log('clicked')
         show('.highscores')
     })
 }

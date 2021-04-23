@@ -1,13 +1,46 @@
 html, body {margin: 0; height: 100%; overflow: hidden}
 
 body {
-    background: aquamarine;
+    height: 100%;
+    width: 100%;
+    left:0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background-size: 1800% 1800%;
+  
+    -webkit-animation: rainbow 18s ease infinite;
+    -z-animation: rainbow 18s ease infinite;
+    -o-animation: rainbow 18s ease infinite;
+    animation: rainbow 18s ease infinite;}
+  
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
 }
 
 #title {
     font-family: Verdana, sans-serif;
     font-size: 100px;
-    filter: blur(.6px);
+    filter: blur(.9px);
 }
 
 #create-username {
@@ -30,11 +63,15 @@ body {
 
 #controls {
     font-family: Verdana, sans-serif;
+    font-size: 35px;  
+    filter: blur(.6px); 
 }
 
 #credits {
     font-family: Verdana, sans-serif;
     margin-top: 300px;
+    font-size: 30px;  
+    filter: blur(.6px); 
 }
 
 .main-game {
@@ -49,8 +86,34 @@ body {
     border: 5px solid rgb(0, 0, 0);
     margin: 0;
     transform: translate(-50%, -55%);
-    background-color: cornflowerblue;
-    overflow : hidden;
+    overflow: hidden;
+    background: linear-gradient(124deg, #130f0f,#e8b71d, #e3e81d,#1ddde8,#dd00f3, #dd00f3);
+    background-size: 1800% 1800%;
+  
+    -webkit-animation: rainbow 18s ease infinite;
+    -z-animation: rainbow 18s ease infinite;
+    -o-animation: rainbow 18s ease infinite;
+    animation: rainbow 18s ease infinite;}
+  
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
 }
 
 #score {
@@ -58,13 +121,19 @@ body {
     font-size: 50px;
 }
 
+#time {
+    position: relative;
+    font-family: Verdana, sans-serif;
+    top: 700px;
+    font-size: 35px;
+}
 
 /* For the ones that arent shown on the screen yet. */
 
 .balls { 
     height: 200px;
     width: 200px;
-    background-color: rgb(196, 3, 3);
+    background-color: rgba(45, 75, 248, 0.671);
     /* background-color: rgb(3, 196, 3); */
     border-color: hotpink;
     border-radius: 50%;
@@ -108,7 +177,13 @@ body {
     }
 }
 
+#hit{
+    background-color: rgb(3, 196, 3);
+}
 
+#miss{
+    background-color: rgb(196, 3, 3);
+}
 /* #gamecircle {
     width: 100px;
     height: 100px;

@@ -2,31 +2,35 @@
 function startRound() {
     let balls = document.querySelector('.balls')
     togglePlayPause();
+    startLogKey();
 }
 
 //Keydown function 
 //Used so that user wont keep stacking up on points
-document.addEventListener('keydown', logKey)
-function logKey(e) {
-    if (e.code == chosenKey && isHit == false) {
-        isHit = true
-        console.log('HIT!')
-        hitAnimation()
-        addPoints()
-    } else if (e.code == chosenKey && isHit == true) {
-    } else if (e.code !== chosenKey && isHit == false) {
-        isHit = true
-        console.log(e.code + "missed")
-        removePoints()
-    } else {
+function startLogKey() {
+    document.addEventListener('keydown', logKey)
+
+    function logKey(e) {
+        if (e.code == chosenKey && isHit == false) {
+            isHit = true
+            hitAnimation()
+            addPoints()
+        } else if (e.code == chosenKey && isHit == true) {
+        } else if (e.code !== chosenKey && isHit == false) {
+            isHit = true
+            missAnimation()
+            removePoints()
+        } else {
+        }
     }
-    console.log(score)
 }
 
 //Chooses which ball to display for the game at random
 function drawBall() {
     let ball = document.getElementsByClassName(`balls`)[0]
-    console.log(ball)
+
+    ball.removeAttribute("id", "hit")
+    ball.removeAttribute("id", "miss")
 
     ball.hidden = false
     isHit = false
@@ -40,31 +44,53 @@ function addPoints() {
     score = (score * scoreMultiplier) + 1
     let displayScore = document.getElementById('score')
     displayScore.innerText = `Score: ${score}`
-
 }
 
 function removePoints() {
     score = score - 1
     let displayScore = document.getElementById('score')
     displayScore.innerText = `Score: ${score}`
-    console.log(score)
 }
 
 function hitAnimation() {
     let ball = document.getElementsByClassName(`balls`)[0]
-    ball.style.backroundColor='brown'
+    ball.setAttribute("id", "hit")
 }
 
-hitAnimation()
+function missAnimation() {
+    let ball = document.getElementsByClassName(`balls`)[0]
+    ball.setAttribute("id", "miss")
+}
 
 function endGame(){
+    let scoreBtn = document.getElementById('scoreBtn')
+
     hide('#mainp')
     hide('.container')
+    show('#scoreBtn')
+    
+    if (uName != '') {
+        console.log(`Player Name: ${uName}`)
+        console.log(`Player Score: ${score}`)
+    }
+
+    scoreBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        createUser()
+    }) 
 }
 
 function startGame(){
     hide('#mainp')
     show('.container')
+}
+
+function timeLeft(){
+    let displayTime = document.getElementById('time')
+    setTimeout(() => {
+        displayTime.innerText = `Time Left: ${((audioDur - audioElement.currentTime) / 60).toFixed(2)}`
+        timeLeft();
+    }, 600);
 }
 
 // drawBall();
