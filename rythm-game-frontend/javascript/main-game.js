@@ -3,6 +3,7 @@ function startRound() {
     let balls = document.querySelector('.balls')
     togglePlayPause();
     startLogKey();
+    toggleVideo();
 }
 
 //Keydown function 
@@ -35,7 +36,7 @@ function drawBall() {
     ball.hidden = false
     isHit = false
     chosenKey = `${normalKeysToBeClicked[Math.floor(Math.random() * 8) + 0]}`
-    ball.innerHTML = ` <center><h1>${chosenKey}</h1></center>`
+    ball.innerHTML = ` <center><h1><br>${chosenKey}</h1></center>`
     ball.style.top = `${Math.floor(Math.random() * 50) + 1}%`
     ball.style.left = `${Math.floor(Math.random() * 73) + 1}%`
 }
@@ -63,6 +64,7 @@ function missAnimation() {
 }
 
 function endGame(){
+    toggleVideo()
     let scoreBtn = document.getElementById('scoreBtn')
 
     hide('#mainp')
@@ -91,6 +93,17 @@ function timeLeft(){
         displayTime.innerText = `Time Left: ${((audioDur - audioElement.currentTime) / 60).toFixed(2)}`
         timeLeft();
     }, 600);
+}
+
+function toggleVideo(){
+    let video = document.querySelector('#video')
+    if(video.hidden == true){
+        video.hidden = false
+        video.play()
+    }else{
+        video.hidden = true
+        video.pause()
+    }
 }
 
 // drawBall();
